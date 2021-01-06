@@ -47,8 +47,10 @@ export default function Register() {
 						type
 					}))
 					history.push("/")
-				}
-				else
+				} else if (!!data.type && 
+					data.type === "USERNAME") {
+					setError("User Name is not valid try other")
+				} else
 					setError("Invalid Credentials")
 			})
 			.catch(err => setError("Something went wrong"))

@@ -28,7 +28,8 @@ npm i
 ```
 make sure you are back to the directory where the manage.py file is there and run the server
 ```bash
-python manage.py makemigrations
+python manage.py makemigrations items
+python manage.py makemigrations users
 python manage.py migrate
 python manage.py runserver
 ```

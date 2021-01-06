@@ -45,16 +45,21 @@ class RegisterView(APIView):
 			return Response({ "status": False }, 
 				status=status.HTTP_400_BAD_REQUEST)
 
-		user = User.objects.create_user(
-			username=user_name, 
-			password=password,
-		)
-		user.save()
+		try:
+			user = User.objects.create_user(
+				username=user_name, 
+				password=password,
+			)
+			user.save()
 
-		self.update_type_of_user(user, type_of_user)
+			self.update_type_of_user(user, type_of_user)
 
-		return Response({ "status": True },
-			status=status.HTTP_200_OK)
+			return Response({ "status": True },
+				status=status.HTTP_200_OK)
+
+		except:
+			return Response({ "status": False, "type": "USERNAME" },
+				status=status.HTTP_400_BAD_REQUEST)
 
 	def update_type_of_user(self, user, type_of_user):
 		type_instance = UserType.objects.create(
