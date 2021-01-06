@@ -17,8 +17,8 @@ v14.15.0
 ## Running
 clone the repo and change the directory
 ```bash
-git clone
-cd 
+git clone https://github.com/GanapathyPT/HospitalSystem.git
+cd HospitalSystem
 ```
 install the required packages
 ```bash
